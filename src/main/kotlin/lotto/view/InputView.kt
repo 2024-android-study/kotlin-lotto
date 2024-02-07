@@ -35,7 +35,7 @@ class InputView {
 
         val input = Console.readLine()
 
-        return inputValidator.validateBonusNum(input, lottoNumbers)
+        return inputValidator.validateBonusNum(input)
     }
 
 }

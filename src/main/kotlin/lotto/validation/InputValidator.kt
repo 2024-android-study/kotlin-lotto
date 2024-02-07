@@ -5,6 +5,8 @@ import lotto.constants.NumConstant
 
 class InputValidator {
 
+    private var lottoNumbers = mutableListOf<Int>()
+
     // 구입 금액 검증
     fun validateMoney(input: String): Int {
         require(input.isNotEmpty()) {ErrorConstant.ERROR_EMPTY}
@@ -31,11 +33,13 @@ class InputValidator {
             require(it.toInt() in (NumConstant.MIN_RANDOM_NUM..NumConstant.MAX_RANDOM_NUM)) {ErrorConstant.ERROR_NUM_RANGE}
         }
 
+        lottoNumbers = numbers.map { it.toInt() }.toMutableList()
+
         return numbers.map { it.toInt() }
     }
 
     // 보너스 번호 검증
-    fun validateBonusNum(input: String, lottoNumbers: MutableList<Int>): Int {
+    fun validateBonusNum(input: String): Int {
         require(input.isNotEmpty()) {ErrorConstant.ERROR_EMPTY}
         require(!input.contains(" ")) {ErrorConstant.ERROR_MONEY_BLANK}
         require(!input.contains(",")) {ErrorConstant.ERROR_BONUS_NUM}
