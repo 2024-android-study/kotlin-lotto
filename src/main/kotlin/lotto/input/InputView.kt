@@ -12,15 +12,15 @@ class InputView {
         return inputValidator.validateMoney(money)
     }
 
-    fun inputWinNum(): Int {
+    fun inputWinNum(): List<Int> {
         println(InputConst.INPUT_WIN_NUM)
         val num = Console.readLine()
         return inputValidator.validateWinNum(num)
     }
 
-    fun inputBonusNum(): Int {
+    fun inputBonusNum(winNum: List<Int>): Int {
         println(InputConst.INPUT_BONUS_NUM)
         val num = Console.readLine()
-        return inputValidator.validateBonusNum(num)
+        return inputValidator.validateBonusNum(num, winNum)
     }
 }

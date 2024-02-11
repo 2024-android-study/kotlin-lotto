@@ -5,5 +5,9 @@ class Lotto(private val numbers: List<Int>) {
         require(numbers.size == 6)
     }
 
-    // TODO: 추가 기능 구현
+    fun matchNumbers(winNum: List<Int>): Int {
+        return this.numbers.count { it in winNum }
+    }
+
+    fun matchBonus(bonusNum: Int): Boolean = bonusNum in numbers
 }

@@ -1,33 +1,33 @@
 package lotto.input
 
-import lotto.constant.ErrorConstant
+import lotto.constant.ErrorConst
 
 class InputValidator {
     fun validateMoney(money: String): Int {
-        require(money.isNotEmpty()) { ErrorConstant.ERROR_EMPTY }
-        require(money.isNumber()) { ErrorConstant.ERROR_NUM }
-        require(money.toInt() > 1000) { ErrorConstant.ERROR_NUM }
-        require(money.toInt() % 1000 == 0) { ErrorConstant.ERROR_NUM }
+        require(money.isNotEmpty()) { ErrorConst.ERROR_EMPTY }
+        require(money.isNumber()) { ErrorConst.ERROR_NUM }
+        require(money.toInt() > LOTTO_UNIT) { ErrorConst.ERROR_MONEY_MIN }
+        require(money.toInt() % LOTTO_UNIT == 0) { ErrorConst.ERROR_MONEY_UNIT }
         return money.toInt()
     }
 
     fun validateWinNum(input: String): List<Int> {
-        require(input.isNotEmpty()) { ErrorConstant.ERROR_EMPTY }
+        require(input.isNotEmpty()) { ErrorConst.ERROR_EMPTY }
         val winNumbers = input.split(",")
-        require(winNumbers.size == LOTTO_NUM) { ErrorConstant.ERROR_LOTTO_NUM_CNT }
-        require(winNumbers.toSet().size == winNumbers.size) { ErrorConstant.ERROR_LOTTO_NUM_DUPLICATE }
+        require(winNumbers.size == LOTTO_NUM) { ErrorConst.ERROR_LOTTO_NUM_CNT }
+        require(winNumbers.toSet().size == winNumbers.size) { ErrorConst.ERROR_LOTTO_NUM_DUPLICATE }
         winNumbers.forEach {
-            require(it.isNumber()) { ErrorConstant.ERROR_NUM }
-            require(it.isNumberInRange()) { ErrorConstant.ERROR_NUM_RANGE }
+            require(it.isNumber()) { ErrorConst.ERROR_NUM }
+            require(it.isNumberInRange()) { ErrorConst.ERROR_NUM_RANGE }
         }
         return winNumbers.map { it.toInt() }
     }
 
     fun validateBonusNum(num: String, winNumbers: List<Int>): Int {
-        require(num.isNotEmpty()) { ErrorConstant.ERROR_EMPTY }
-        require(num.isNumber()) { ErrorConstant.ERROR_NUM }
-        require(num.isNumberInRange()) { ErrorConstant.ERROR_NUM_RANGE }
-        require(!winNumbers.contains(num.toInt())) { ErrorConstant.ERROR_BONUS_NUM_DUPLICATE }
+        require(num.isNotEmpty()) { ErrorConst.ERROR_EMPTY }
+        require(num.isNumber()) { ErrorConst.ERROR_NUM }
+        require(num.isNumberInRange()) { ErrorConst.ERROR_NUM_RANGE }
+        require(!winNumbers.contains(num.toInt())) { ErrorConst.ERROR_BONUS_NUM_DUPLICATE }
 
         return num.toInt()
     }
@@ -43,7 +43,7 @@ class InputValidator {
     companion object NumConstant {
         const val MIN_NUM = 1
         const val MAX_NUM = 45
+        const val LOTTO_UNIT = 1000
         const val LOTTO_NUM = 6
-        const val LOTTO_BONUS_NUM = 7
     }
 }
