@@ -14,4 +14,21 @@ class OutputView {
         }
     }
 
+    fun printRankComment() {
+        println(ViewConstant.LOTTO_STATISTICS)
+    }
+
+    fun printRank(matchCount: Int, reward: Int, bonusMatch: Boolean, cnt: Int) {
+        if (matchCount == 5 && bonusMatch) {
+            println(ViewConstant.RANK_BONUS_MESSAGE.format(matchCount, reward, cnt))
+        } else {
+            println(ViewConstant.RANK_MESSAGE.format(matchCount, reward, cnt))
+        }
+    }
+
+    // 수익률 출력
+    fun printRate(rate: Double) {
+        println(ViewConstant.LOTTO_RATE.format(rate))
+    }
+
 }
