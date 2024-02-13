@@ -1,5 +1,7 @@
 package lotto
 
+import lotto.di.AppModule
+
 fun main() {
-    TODO("프로그램 구현")
+    AppModule.provideLottoApp().run()
 }
