@@ -15,6 +15,7 @@ class InputView {
         val input = Console.readLine()
         val payment = converter.stringToInt(input)
         validator.checkPaymentPrice(payment)
+        println()
         return payment
     }
 
@@ -23,6 +24,7 @@ class InputView {
         val input = Console.readLine()
         val winNums = converter.splitComma(input)
         validator.checkWinNums(winNums)
+        println()
         return winNums
     }
 
@@ -31,6 +33,7 @@ class InputView {
         val input = Console.readLine()
         val bonusNum = converter.stringToInt(input)
         validator.checkNumRange(bonusNum)
+        println()
         return bonusNum
     }
 }

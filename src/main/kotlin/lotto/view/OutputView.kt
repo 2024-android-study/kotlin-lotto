@@ -9,5 +9,6 @@ class OutputView {
             lottos[i] = list.sorted()
         }
         println(lottos.joinToString("\n"))
+        println()
     }
 }
