@@ -7,19 +7,19 @@ class InputView {
     private val inputValidator = InputValidator()
 
     fun inputMoney(): Int {
-        println(InputConst.INPUT_MONEY)
+        println(InputConst.INPUT_MONEY.s)
         val money = Console.readLine()
         return inputValidator.validateMoney(money)
     }
 
     fun inputWinNum(): List<Int> {
-        println(InputConst.INPUT_WIN_NUM)
+        println(InputConst.INPUT_WIN_NUM.s)
         val num = Console.readLine()
         return inputValidator.validateWinNum(num)
     }
 
     fun inputBonusNum(winNum: List<Int>): Int {
-        println(InputConst.INPUT_BONUS_NUM)
+        println(InputConst.INPUT_BONUS_NUM.s)
         val num = Console.readLine()
         return inputValidator.validateBonusNum(num, winNum)
     }

@@ -13,7 +13,7 @@ class LottoGame {
     fun run() {
         val money = inputView.inputMoney()
 
-        for(i in 1..money % LOTTO_UNIT) {
+        for(i in 1..money / LOTTO_UNIT) {
             lottoList.add(createLotto())
         }
 
@@ -55,7 +55,7 @@ class LottoGame {
     private fun calculateReturn(winList: List<Int>, money: Int): Float {
         val prizeMoney = listOf(THREE_PRIZE, FOUR_PRIZE, FIVE_PRIZE, FIVE_BONUS_PRIZE, SIX_PRIZE)
         val totalPrizeMoney = winList.indices.sumOf { winList[it].toLong() * prizeMoney[it] }
-        return kotlin.math.round(((totalPrizeMoney - money) / money.toFloat()) * 100 * 100) / 100
+        return totalPrizeMoney / money.toFloat() * 100
     }
     companion object {
         const val LOTTO_UNIT = 1000

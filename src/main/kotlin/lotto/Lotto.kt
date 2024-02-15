@@ -10,4 +10,6 @@ class Lotto(private val numbers: List<Int>) {
     }
 
     fun matchBonus(bonusNum: Int): Boolean = bonusNum in numbers
+
+    fun getNumbers() = numbers
 }

@@ -7,12 +7,13 @@ class OutputView {
     fun printLotto(lottos: List<Lotto>) {
         println(OutputConst.OUTPUT_BUY.formatted(lottos.size))
         for(lotto in lottos) {
-            println(lotto)
+            println(lotto.getNumbers())
         }
     }
 
     fun printStatics(winList: List<Int>) {
-        println(OutputConst.OUTPUT_STATICS)
+        println(winList)
+        println(OutputConst.OUTPUT_STATICS.s)
         println(OutputConst.OUTPUT_3_MATCH.formatted(winList[0]))
         println(OutputConst.OUTPUT_4_MATCH.formatted(winList[1]))
         println(OutputConst.OUTPUT_5_MATCH.formatted(winList[2]))
