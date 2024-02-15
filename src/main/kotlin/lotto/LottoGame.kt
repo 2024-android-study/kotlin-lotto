@@ -22,7 +22,8 @@ class LottoGame {
         val winNums = inputView.readWinNums()
         val bonusNum = inputView.readBonusNum()
 
-        outputView.printWinningStatistics(compareLotto(winNums, bonusNum))
+        val compareResult = compareLotto(winNums, bonusNum)
+        outputView.printWinningStatistics(mapCountAndPrice(compareResult))
     }
 
     private fun purchaseLotto(payment: Int): Int {
@@ -47,5 +48,17 @@ class LottoGame {
         lotto.initMyLotto(myLottos)
         lotto.repeatCompare()
         return lotto.winStatus()
+    }
+
+    private fun mapCountAndPrice(countList: List<Int>): List<Pair<Int, Int>> {
+        val priceList = listOf(
+                NumConstant.WIN_3,
+                NumConstant.WIN_4,
+                NumConstant.WIN_5,
+                NumConstant.WIN_6,
+                NumConstant.WIN_5_AND_BONUS
+        )
+        val map = countList.zip(priceList)
+        return map
     }
 }
