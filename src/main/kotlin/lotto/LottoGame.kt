@@ -4,11 +4,13 @@ import lotto.constant.NumConstant
 import lotto.view.InputView
 
 class LottoGame {
-    val inputView = InputView()
+    private val inputView = InputView()
 
     fun run() {
         val payment = inputView.readPaymentPrice()
         val lottoNum = purchaseLotto(payment)
+
+        val winNums = inputView.readWinNums()
     }
 
     private fun purchaseLotto(payment: Int): Int {

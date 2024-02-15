@@ -17,4 +17,12 @@ class InputView {
         validator.checkPaymentPrice(payment)
         return payment
     }
+
+    fun readWinNums(): List<Int> {
+        println(GameMessageConstant.INPUT_WIN_NUMBERS)
+        val input = Console.readLine()
+        val winNums = converter.splitComma(input)
+        validator.checkWinNums(winNums)
+        return winNums
+    }
 }
