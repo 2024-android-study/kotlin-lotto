@@ -16,10 +16,13 @@ class LottoGame {
         val paymentLottoNum = purchaseLotto(payment)
 
         createMyLotto(paymentLottoNum)
+        sortMyLotto()
         outputView.printPublishedLottos(myLottos)
 
         val winNums = inputView.readWinNums()
         val bonusNum = inputView.readBonusNum()
+
+        outputView.printWinningStatistics(compareLotto(winNums, bonusNum))
     }
 
     private fun purchaseLotto(payment: Int): Int {
@@ -30,5 +33,19 @@ class LottoGame {
         for (i in 1..num) {
             myLottos.add(LottoNumGenerator().createLotto())
         }
+    }
+
+    private fun sortMyLotto() {
+        myLottos.forEachIndexed { i, list ->
+            myLottos[i] = list.sorted()
+        }
+    }
+
+    private fun compareLotto(winNums: List<Int>, bonusNum: Int): List<Int> {
+        val lotto = Lotto(winNums)
+        lotto.initBonusNum(bonusNum)
+        lotto.initMyLotto(myLottos)
+        lotto.repeatCompare()
+        return lotto.winStatus()
     }
 }

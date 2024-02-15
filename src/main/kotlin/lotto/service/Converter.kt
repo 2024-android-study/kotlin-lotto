@@ -1,6 +1,7 @@
 package lotto.service
 
 import lotto.validator.InputValidator
+import java.text.DecimalFormat
 
 object Converter {
 
@@ -21,6 +22,11 @@ object Converter {
     private fun stringListToIntList(list: List<String>): List<Int> {
         validator.checkAllIsNum(list)
         return list.map { it.toInt() }.toList()
+    }
+
+    fun markPunctuatedPrice(price: Int): String {
+        val dec = DecimalFormat("#,###")
+        return dec.format(price)
     }
 
 }
