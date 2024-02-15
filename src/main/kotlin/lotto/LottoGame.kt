@@ -11,6 +11,7 @@ class LottoGame {
         val lottoNum = purchaseLotto(payment)
 
         val winNums = inputView.readWinNums()
+        val bonusNum = inputView.readBonusNum()
     }
 
     private fun purchaseLotto(payment: Int): Int {

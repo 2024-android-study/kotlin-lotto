@@ -25,4 +25,12 @@ class InputView {
         validator.checkWinNums(winNums)
         return winNums
     }
+
+    fun readBonusNum(): Int {
+        println(GameMessageConstant.INPUT_BONUS_NUMBER)
+        val input = Console.readLine()
+        val bonusNum = converter.stringToInt(input)
+        validator.checkNumRange(bonusNum)
+        return bonusNum
+    }
 }

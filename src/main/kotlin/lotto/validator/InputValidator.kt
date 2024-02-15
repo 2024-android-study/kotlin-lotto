@@ -37,7 +37,7 @@ class InputValidator {
         }
     }
 
-    private fun checkNumRange(num: Int) {
+    fun checkNumRange(num: Int) {
         require(num >= NumConstant.NUMBER_RANGE_START && num <= NumConstant.NUMBER_RANGE_END) {
             ErrorMessageConstant.ERROR_LOTTO_NUM_RANGE
         }
