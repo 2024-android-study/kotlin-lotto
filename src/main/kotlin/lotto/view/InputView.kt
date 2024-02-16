@@ -23,7 +23,7 @@ class InputView {
         println(GameMessageConstant.INPUT_WIN_NUMBERS)
         val input = Console.readLine()
         val winNums = converter.splitComma(input)
-        validator.checkWinNums(winNums)
+//        validator.checkWinNums(winNums)
         println()
         return winNums
     }

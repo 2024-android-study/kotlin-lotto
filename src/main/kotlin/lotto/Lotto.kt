@@ -1,8 +1,13 @@
 package lotto
 
+import lotto.validator.InputValidator
+
 class Lotto(private val numbers: List<Int>) {
     init {
         require(numbers.size == 6)
+
+        val validator = InputValidator()
+        validator.checkWinNums(numbers)
     }
 
     private var bonusNum: Int = 0
