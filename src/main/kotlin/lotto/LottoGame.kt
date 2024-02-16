@@ -23,7 +23,9 @@ class LottoGame {
         val bonusNum = inputView.readBonusNum()
 
         val compareResult = compareLotto(winNums, bonusNum)
-        outputView.printWinningStatistics(mapCountAndPrice(compareResult))
+        val mapResult = mapCountAndPrice(compareResult)
+        outputView.printWinningStatistics(mapResult)
+        outputView.printEarningRate(payment, totalEarnMoney(mapResult))
     }
 
     private fun purchaseLotto(payment: Int): Int {
@@ -60,5 +62,13 @@ class LottoGame {
         )
         val map = countList.zip(priceList)
         return map
+    }
+
+    private fun totalEarnMoney(history: List<Pair<Int, Int>>): Int {
+        var earning = 0
+        history.forEach{
+            earning += it.first * it.second
+        }
+        return earning
     }
 }

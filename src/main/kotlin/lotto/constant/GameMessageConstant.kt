@@ -11,5 +11,5 @@ object GameMessageConstant {
 
     const val OUTPUT_WIN_STATISTICS = "%d개 일치 (%s원) - %d개"
     const val OUTPUT_WIN_BONUS_STATISTICS = "%d개 일치, 보너스볼 일치 (%s원) - %d개"
-    const val OUTPUT_TOTAL_EARNINGS_RATE = "총 수익률은 %f%입니다."
+    const val OUTPUT_TOTAL_EARNINGS_RATE = "총 수익률은 %.1f%%입니다."
 }

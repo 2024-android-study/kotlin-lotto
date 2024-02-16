@@ -26,4 +26,9 @@ class OutputView {
             }
         }
     }
+
+    fun printEarningRate(payment: Int, earning: Int) {
+        val rate = earning.toFloat() / payment * 100
+        println(GameMessageConstant.OUTPUT_TOTAL_EARNINGS_RATE.format(rate))
+    }
 }
